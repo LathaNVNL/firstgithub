@@ -1,0 +1,28 @@
+
+//Whenever User creating a new Contact using quick create form, 
+//from Account entity if Age field value equals to 1-18 then Email,
+ //Mobile Phone fields set field requirements as required/mandatory
+
+ function setFiedrequirementasrequired(executionContext)
+{
+    // Getting formContext 
+    var formContext = executionContext.getFormContext();
+    // Get value of Age 
+    var age = formContext.getAttribute("new_age").getValue();
+    // Check condition if Age field value equals to 1-18 then Email, Mobile Phone fields set field requirements as required/mandatory.
+    if (age == 100000000)
+    {
+        //setting Email field requirement as required/mandatory.
+        formContext.getAttribute("emailaddress1").setRequiredLevel("required");
+        // setting Mobile phone field requirement as required/mandatory.
+        formContext.getAttribute("mobilephone").setRequiredLevel("required");
+    }
+    else
+    {
+        //setting Email field requirement as none.
+        formContext.getAttribute("emailaddress1").setRequiredLevel("none");
+        // setting Mobile phone field requirement as none.
+        formContext.getAttribute("mobilephone").setRequiredLevel("none");
+ 
+    }
+}
